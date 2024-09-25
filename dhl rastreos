@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHL</title>
+    <link rel="stylesheet" href="styles.css">
+    /* Reseteo básico de márgenes y relleno */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  h1 {
+      color: #333;
+      font-size: 2.5rem; /* Ajusta el tamaño de fuente según sea necesario */
+      font-weight: 100; /* Delgadez de la fuente */
+      line-height: 1.2;
+      text-transform: uppercase;
+  }   
+  /* Estilos generales */
+  body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+  }
+  
+  /* Encabezado */
+  header {
+      background-color: #f7d01a; /* Amarillo DHL */
+      padding: 5px;
+      text-align: center;
+  }
+  
+  .header-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .logo {
+      max-width: 50px;
+      height: auto;
+  }
+  
+  h1 {
+      color: #333;
+  }
+  
+  /* Caja de rastreo */
+  main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+  }
+  
+  .tracking-box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      max-width: 500px; /* Ajusta el tamaño máximo según sea necesario */
+  }
+  
+  .tracking-box h2 {
+      margin-bottom: 20px;
+      color: #333;
+  }
+  
+  .tracking-box input[type="text"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 10px;
+  }
+  
+  .tracking-box button {
+      background-color: red; /* Amarillo DHL */
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+  }
+  
+  .tracking-box button:hover {
+      background-color: #e5b90f; /* Amarillo más oscuro para hover */
+  }
+  
+  /* Pie de página */
+  footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+  }
+  
+  footer p {
+      margin: 0;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+      .header-container {
+          flex-direction: column;
+      }
+  
+      .logo {
+          max-width: 120px;
+      }
+  
+      .tracking-box {
+          padding: 15px;
+      }
+  
+      .tracking-box h2 {
+          font-size: 1.2rem;
+      }
+  
+      .tracking-box input[type="text"] {
+          width: calc(100% - 20px);
+      }
+  
+      .tracking-box button {
+          font-size: 14px;
+          padding: 8px 16px;
+      }
+  }
+  
+  @media (max-width: 480px) {
+      .header-container {
+          padding: 10px;
+      }
+  
+      .logo {
+          max-width: 100px;
+      }
+  
+      .tracking-box {
+          padding: 10px;
+      }
+  
+      .tracking-box h2 {
+          font-size: 1rem;
+      }
+  
+      .tracking-box input[type="text"] {
+          width: calc(100% - 20px);
+      }
+  
+      .tracking-box button {
+          font-size: 12px;
+          padding: 6px 12px;
+      }
+  
+      footer p {
+          font-size: 0.9rem;
+      }
+  }
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  body {
+      font-family: 'Arial', sans-serif;
+      background-color: yellow;
+      color: #333;
+      line-height: 1.6;
+  }
+  
+  /* Estilos para el encabezado */
+  header.header {
+      background-color: #6c4ec2;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  
+  header .logo h1 {
+      font-size: 28px;
+      font-weight: bold;
+  }
+  
+  header .nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+  }
+  
+  header .nav a {
+      color: yellow;
+      text-decoration: none;
+      font-weight: bold;
+  }
+  
+  header .btn-login, header .btn-register {
+      background-color: yellow;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+  }
+  
+  /* Estilos para el contenido principal */
+  main {
+      padding: 20px;
+  }
+  
+  /* Rastreo de paquetes */
+  .tracking-info {
+      text-align: center;
+      margin-bottom: 40px;
+  }
+  
+  .tracking-info h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+  }
+  
+  .tracking-info .tracking-status {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  }
+  
+  .tracking-info .status {
+      text-align: center;
+  }
+  
+  .tracking-info .status img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+  }
+  
+  /* Detalles de envío */
+  .details {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 40px;
+  }
+  
+  .details-box, .track-another {
+      background-color: yellow;
+      padding: 20px;
+      border-radius: 10px;
+      width: 40%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .details-box h3, .track-another h3 {
+      margin-bottom: 10px;
+      color: #6c4ec2;
+  }
+  
+  form input {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+  
+  form button {
+      background-color: #ffcc00;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+  }
+  
+  form button:hover {
+      background-color: #ffb700;
+  }
+  
+  /* Estilos para el pie de página */
+  footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #6c4ec2;
+      color: white;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+  }
+  
+  /* Media Query para pantallas pequeñas (móviles) */
+  @media only screen and (max-width: 768px) {
+      header .nav {
+          flex-direction: column;
+          gap: 10px;
+      }
+  
+      header .btn-login, header .btn-register {
+          padding: 8px 10px;
+      }
+  
+      .tracking-info .tracking-status {
+          flex-direction: column;
+      }
+  
+      .tracking-info h2 {
+          font-size: 20px;
+      }
+  
+      .details {
+          flex-direction: column;
+          align-items: center;
+      }
+  
+      .details-box, .track-another {
+          width: 80%;
+          margin-bottom: 20px;
+      }
+  
+      form input {
+          width: 100%;
+      }
+  }
+  
+  /* Media Query para pantallas grandes (PC) */
+  @media only screen and (min-width: 769px) {
+      main {
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+  
+      .tracking-info h2 {
+          font-size: 28px;
+      }
+  
+      .tracking-info .status img {
+          width: 60px;
+          height: 60px;
+      }
+  
+      .details-box, .track-another {
+          width: 45%;
+      }
+  
+      form input {
+          width: 80%;
+      }
+  }
+    /* Ajustes para la lista de soluciones */
+    .info-box ul {
+      list-style-type: none;
+      padding-left: 0;
+  }
+
+  .info-box ul li {
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+  }
+
+  .info-box ul li i {
+      margin-right: 10px; /* Espacio entre el ícono y el texto */
+      color: brown; /* Puedes cambiar el color del ícono */
+  }
+     /* Estilos para ajustar la tabla en pantallas pequeñas */
+     .table-container {
+      overflow-x: auto;
+  }
+
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+
+  th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+  }
+
+  /* Responsividad para pantallas pequeñas */
+  @media (max-width: 768px) {
+      th, td {
+          padding: 5px;
+          font-size: 14px;
+      }
+
+      table {
+          font-size: 12px;
+      }
+  }
+
+  @media (max-width: 480px) {
+      th, td {
+          padding: 3px;
+          font-size: 12px;
+      }
+
+      table {
+          font-size: 10px;
+      }
+  }
+     /* Estilos para ajustar la tabla en pantallas pequeñas */
+     .table-container {
+      overflow-x: auto;
+  }
+
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+
+  th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+  }
+
+  /* Responsividad para pantallas pequeñas */
+  @media (max-width: 768px) {
+      th, td {
+          padding: 5px;
+          font-size: 14px;
+      }
+
+      table {
+          font-size: 12px;
+      }
+  }
+
+  @media (max-width: 480px) {
+      th, td {
+          padding: 3px;
+          font-size: 12px;
+      }
+
+      table {
+          font-size: 10px;
+      }
+  }
+    /* Estilos para ajustar la tabla en pantallas pequeñas */
+    .table-container {
+      overflow-x: auto;
+  }
+
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+
+  th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+  }
+
+  /* Responsividad para pantallas pequeñas */
+  @media (max-width: 768px) {
+      th, td {
+          padding: 5px;
+          font-size: 14px;
+      }
+
+      table {
+          font-size: 12px;
+      }
+  }
+
+  @media (max-width: 480px) {
+      th, td {
+          padding: 3px;
+          font-size: 12px;
+      }
+
+      table {
+          font-size: 10px;
+      }
+  } /* Ajustes para la lista de soluciones */
+  .info-box ul {
+      list-style-type: none;
+      padding-left: 50;
+  }
+
+  .info-box ul li {
+      font-size: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+  }
+
+  .info-box ul li i {
+      margin-right: 50px; /* Espacio entre el ícono y el texto */
+      color: blue; /* Puedes cambiar el color del ícono */
+  }
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="pjg/dhl.png" >
+            <h1><i>RASTREOS Y<br>SEGUIMIENTOS</i></h1>
+        </div>
+    </header><br><br>
+
+    <main>
+        <div class="tracking-box">
+            <h2 style="color: brown;"> Ingrese El Numero De Rastreo</h2>
+            <input type="text" id="trackingNumber" placeholder="Número de rastreo">
+            <button type="button" onclick="trackPackage()"><span style="color: white;"><h4>rastrear</h4></span></button>
+        </div>
+    </main>
+
+    <script>
+        function trackPackage() {
+            const trackingNumber = document.getElementById('trackingNumber').value;
+            if (trackingNumber) {
+                alert(`codigo de rastreo valido comenzando rastreo: ${trackingNumber  }`);
+                // Redirigir a otro archivo HTML después del mensaje
+                window.location.href ='https://rastreo-de-paquete-dhl.netlify.app/'; // Reemplaza con la URL de tu archivo HTML
+            } else {
+                alert('Por favor, ingrese un número de rastreo.');
+            }
+        }
+    </script><br>
+        <img src="pjg/th-23166934.jpeg" width="320" height="150"/>
+        </div>
+        <br><br>
+        
+        <div class="info-box" style="background-color: white;; border: 2px solid #ddd; border-radius: 50px; padding: 20px; margin-top: 20px; display: inline-block; width: 100%; max-width: 800px;">
+            <h2><span style="color: red;">SERVICIOS</span></h2><br>
+            <ul style="list-style-type: none; padding-left: 0; text-align: left;">
+                <li><img src="pjg/almacenaje.jpeg" width="50"/><i class="fas fa-warehouse"><span style="color: blue;"><i> Almacenaje</li></span>
+                <li><img src="pjg/trasporte.jpeg" width="50"/><i class="fas fa-truck"><span style="color: blue;"><i>Trasporte</li></span>
+                <li><img src="pjg/empaquetado.jpeg" width="50"/><i class="fas fa-box"><span style="color: blue;"><i> Empaquetado</li></span>
+                <li><img src="pjg/logistica.jpeg" width="50"/><i class="fas fa-cogs"><span style="color: blue;"><i>logistica de servicios</li></span>
+                <li><img src="pjg/mercado.jpeg" width="50"/><i class="fas fa-building"><span style="color: blue;"><i> mercado inmobiliario </li></span>
+                <li><i class="fas fa-plus"></i> Y mucho más.</li>
+            </ul>
+        </div>
+        
+        <!-- Asegúrate de incluir Font Awesome en tu página -->
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        
+        <div class="info-box" style="background-color: white;; border: 2px solid #ddd; border-radius: 10px; padding: 20px; margin-top: 20px; display: inline-block; width: 100%; max-width: 800px;" >
+        <br> 
+        <h2><span style="color: brown;"><i>Costos de Envío</span></i></h2>
+    <div class="table-container" >
+        <table  cellpadding="10" cellspacing="0" style="width: 100%; text-align: center; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Zona</th>
+                    <th>Área</th>
+                    <th>costo</td>
+                    <th>total</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Zona 1</td>
+                    <td>Ciudad de México y Área Metropolitana</td>
+                    <td><span style="color: red;">150 MXN</span></td>
+                    <td><span style="color: blue;">300 MXN</span></td>
+                </tr>
+                <tr>
+                    <td>Zona 2</td>
+                    <td>Estado de México</td>
+                    <td><span style="color: red;">300 MXN</span></td>
+                    <td><span style="color: blue;">400 MXN</span></td>
+                </tr>
+                <tr>
+                    <td>Zona 3</td>
+                    <td>Guadalajara, Jalisco</td>
+                    <td><span style="color: red;">300MXN</span></td>
+                    <td><span style="color: blue;">400 MXN</span></td>
+                </tr>
+                <tr>
+                    <td>Zona 4</td>
+                    <td>Monterrey, Nuevo León</td>
+                    <td><span style="color: red;">400 MXN</span></td>
+                    <td><span style="color: blue;">450 MXN</span></td>
+                </tr>
+                <tr>
+                    <td>Zona 5</td>
+                    <td>Puebla</td>
+                    <td><span style="color: red;">250 MXN</span></td>
+                    <td><span style="color: blue;">300 MXN</span></td>
+                </tr>
+                <tr>
+                    <td>Zona 6</td>
+                    <td>Querétaro</td>
+                    <td><span style="color: red;">400 MXN</span></td>
+                    <td><span style="color: blue;">450 MXN</span></td>
+                </tr>
+                <tr>
+                    <td>Zona 7</td>
+                    <td>Tijuana, Baja California</td>
+                    <td><span style="color: red;">450 MXN</span></td>
+                    <td><span style="color: blue;">500 MXN</span></td>
+                </tr>
+                <tr>
+                    <td>Zona 8</td>
+                    <td>Mérida, Yucatán</td>
+                    <td><span style="color: red;">350 MXN</span></td>
+                    <td><span style="color: blue;">400 MXN</span></td>
+                </tr>
+                <tr>
+                    <td>Zona 9</td>
+                    <td>Chihuahua, Chihuahua</td>
+                    <td><span style="color: red;">300 MXN</span></td>
+                    <td><span style="color: blue;">350 MXN</span></td>
+                </tr>
+                <tr>
+                    <td>Zona 10</td>
+                    <td>Veracruz</td>
+                    <td><span style="color: red;">250 MXN</span></td>
+                    <td><span style="color: blue;">300 MXN</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+
+<!-- Asegúrate de incluir Font Awesome en tu página -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<br><br>
+        <div id="message" class="info-box" ></div>
+        <div class="info-box">
+            <h2><span style="color: brown;"><i>Preguntas Frecuentes</span></i></h2>
+            <ul>
+               <a href="https://mail.google.com/mail/u/0/?hl=es-419#search/dhloficiallenvios%40gmail.com"><span style="color: black"><li>¿Cómo puedo rastrear mi paquete?</span></li></a>
+               <a href="https://mail.google.com/mail/u/0/?hl=es-419#search/dhloficiallenvios%40gmail.com"><li>¿Qué hago si mi paquete está perdido?</li></a>
+               <a href="https://mail.google.com/mail/u/0/?hl=es-419#search/dhloficiallenvios%40gmail.com"><li>¿Cuánto tiempo tarda en llegar un paquete?</li></a>
+               <a href="https://mail.google.com/mail/u/0/?hl=es-419#search/dhloficiallenvios%40gmail.com"><li>¿Cómo actualizo mi dirección de envío?</li></a>
+               <a href="https://mail.google.com/mail/u/0/?hl=es-419#search/dhloficiallenvios%40gmail.com"><li>¿Cómo me comunico con el servicio al cliente?</li></a>
+            </ul>
+        </div>
+        <hr><br><br>
+            <div>
+                <h4>Síganos</h4>
+                <ul>
+                    <li><a href="#" class="social-icons"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    <li><a href="#" class="social-icons"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#" class="social-icons"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="#" class="social-icons"><i class="fab fa-instagram"></i> Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="derecha">
+            <a href="https://mail.google.com/mail/u/0/?hl=es-419#search/dhloficiallenvios%40gmail.com"> Ayuda</a><a href="https://mail.google.com/mail/u/0/?hl=es-419#search/dhloficiallenvios%40gmail.com"> Aclaraciones</a>
+        </div><br>
+        <p>2024 © - todos los derechos reservados envios y reparto DHL</p>
+    </div>
+    <script>
+        function checkTracking() {
+            var codigoIngresado = document.getElementById("trackingNumber").value;  
+            
+            if (codigoIngresado === "DH150724L") {
+                document.getElementById("message").innerHTML = "Usuario, tu paquete está siendo procesado. Tranquilo, ya casi está en camino. El paquete con número de folio BES24T y número de orden 2391. Tu información con nosotros está segura.";
+            } else {
+                document.getElementById("message").innerHTML = "Código de rastreo inválido";
+            }
+        }
+    </script>    
+</body>
+</html>
